@@ -4,7 +4,6 @@ if($_SESSION['USERS']!="User1"){
     header("location:login.php");
     exit();
 }
-
 ?>
 <h1>titre</h1>
 <h2>mbôla titre</h2>

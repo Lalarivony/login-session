@@ -1,15 +1,17 @@
 <?php
-  $email=$_POST['email'];
-  $passe=$_POST['passe'];
-  $valider=$_POST['valider']
-  $erreur="";
-if(isset($valider)){
-  if ($email=='admin' && $passe=='123') {
-    $_SESSION['USERS']="User1";
-    header("location:index.php");
-  }
-  else{
-    echo"Mauvaise passe et login";
+session_start();
+@$email = $_POST["email"];
+@$passe = $_POST["passe"];
+@$valider = $_POST["valider"];
+$erreur = "";
+
+if (isset($valider)) {
+  if ($email == "admin@xy.com" && $passe == "123") {
+    $_SESSION["USERS"] = "User1";
+    header("Location: index.php");
+    exit; // Assurez-vous d'ajouter l'instruction "exit" après la redirection
+  } else {
+    $erreur = "Mauvaise passe et login";
   }
 }
 ?>
@@ -27,11 +29,11 @@ if(isset($valider)){
     <h1 class="section-title">Form animé</h1>
     <div class="forms">
       <div class="form-wrapper is-active">
-        <button type="button" class="switcher switcher-login">
+        <button type="button" class="switcher switcher-login" name="">
           CONNEXION
           <span class="underline"></span>
         </button>
-        <form class="form form-login" methode="post" action="">
+        <form class="form form-login" method="post" action="">
           <fieldset>
             <legend>S'il vous plais, entrer votre adresse e-mail</legend>
             <div class="input-block">
