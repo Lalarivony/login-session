@@ -1,11 +1,10 @@
 <?php
 session_start();
-@$email = $_POST["email"];
-@$passe = $_POST["passe"];
-@$valider = $_POST["valider"];
-$erreur = "";
 
-if (isset($valider)) {
+if (isset($_POST["valider"])) {
+  $email = isset($_POST["email"]) ? $_POST["email"] : "";
+  $passe = isset($_POST["passe"]) ? $_POST["passe"] : "";
+
   if ($email == "admin@xy.com" && $passe == "123") {
     $_SESSION["USERS"] = "User1";
     header("Location: index.php");
@@ -35,7 +34,7 @@ if (isset($valider)) {
         </button>
         <form class="form form-login" method="post" action="">
           <fieldset>
-            <legend>S'il vous plais, entrer votre adresse e-mail</legend>
+            <legend>S'il vous plaît, entrez votre adresse e-mail</legend>
             <div class="input-block">
               <label for="login-email">E-mail</label>
               <input id="login-email" name="email" type="email" required>
@@ -76,3 +75,4 @@ if (isset($valider)) {
   </section>
 <script src="./js/anime.js"></script>
 </body>
+</html>
